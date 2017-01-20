@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Pikalong</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="mainwrap">
+        <div id="header">
+            <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+            <div class="container" id="containerhead">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand pikalongicon" href="#">
+                    <img style="width:80px; height: 50px;" class="img-responsive" src="https://scontent.fsgn3-1.fna.fbcdn.net/v/t1.0-9/16143050_1909935615895120_8823138013021540214_n.jpg?oh=945077c1320eb677e9831db3774cd3f8&oe=59099823"/>
+                </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Pikalong <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">Pokemon</a></li>
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pikalong <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Pikachu</a></li>
+                       <li><a href="#">Pikachu em Pikalong</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Hot Video Pikalong</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Hot Pikalong selfie</a></li>
+                    </ul>
+                    </li>
+                </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container -->
+            </nav>
+        </div><!-- /#header -->
+        <div class="mainbody">
+            <div class="container bg">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 news">
+                        <h3>title</h3>
+                        <div class="items-content">
+                            <iframe width="640" height="480" src="https://www.youtube.com/embed/az5uIpX7WNI" frameborder="0" allowfullscreen></iframe> 
+                        </div>        
+                        <div class="fb-cmment">      
+                            facebook comment         
+                            <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="1"></div>
+                        </div>
+                        <div class="related-content">
+                            <h2>Nội dung liên quan</h2>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                <iframe width="120" height="120" src="https://www.youtube.com/embed/az5uIpX7WNI" frameborder="0" allowfullscreen></iframe> 
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                <iframe width="120" height="120" src="https://www.youtube.com/embed/az5uIpX7WNI" frameborder="0" allowfullscreen></iframe> 
+                            </div>
+                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                <iframe width="120" height="120" src="https://www.youtube.com/embed/az5uIpX7WNI" frameborder="0" allowfullscreen></iframe> 
+                            </div>
+                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                <iframe width="120" height="120" src="https://www.youtube.com/embed/az5uIpX7WNI" frameborder="0" allowfullscreen></iframe> 
+                            </div>                 
+                        </div>                      
+                    </div>
+                    
+                   <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ads">
+                       <div class="ads-item">1</div>
+                       <div class="ads-item">2</div>
+                       <div class="ads-item">3</div>
+                       <div class="ads-item">4</div>
+                       <div class="ads-item">5</div>   
+                   </div>
+                 </div>
+            </div>
+        </div><!-- /.mainbody -->
+
+    </div><!-- /.mainwrap -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8&appId=765123556869072";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+  </body>
+</html>
