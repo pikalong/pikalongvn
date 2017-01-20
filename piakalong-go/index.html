@@ -1,0 +1,158 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta property="fb:app_id" content="1042351895800175" />
+            <meta property="og:url" content="http://vplus.vienthonga.vn/san-thuong/tung-xuc-xac-bat-lien-qua"/>
+            <meta property="og:title"              content="Tung x&#250;c xắc" />    
+            <meta property="og:image"              content="https://cdn1.vienthonga.vn/image/2016/9/5/100000_avata-tung-xuc-xac.png" />  
+    
+    <script src="https://vplus.vienthonga.vn/Content/js/jquery-1.11.2.min.js"></script>
+    
+        <style>
+        
+          .thumb-img{ width: 200px;}
+          .main-wrapper{ width: 1024px;}
+          .left-panel { width: 70%; float: left; border: 1px solid #e1e1e1; }
+          .right-panel { width: 28%; float: right; border: 1px solid #e1e1e1; }
+        </style>
+    </head>
+     
+    <body>
+        <!-- Navigation -->
+          <h3>my header </h3>
+          <ul class="nav navbar-nav">
+                <li>
+                  <a href="#">Pikalong</a></li>
+                <li>
+                  <a href="/photo">Photo</a></li>
+                <li>
+                  <a href="/tin-tuc">Tin tức</a></li>
+    
+              </ul>	<div class="main-wrapper">
+    	<div class="left-panel">
+    aaaaaaa bbbbbbbbbb
+        <h1> Piakalong Go</h1>
+        <h3>  </h3>
+  
+        
+        <div class="post-comment">
+            <fb:comments href="http://chatvl.tv/v/434604" num_posts="10" width="728" fb-xfbml-state="rendered" class="fb_iframe_widget"></fb:comments>				
+        </div>
+        </div>
+        <div class="right-panel">
+        	<div class="left-side-bar">
+        		Right panel
+        	</div>        </div>
+    </div>
+    
+     
+    <footer>
+         
+    </footer>
+    
+    <!-- Javascript -->
+    <div id="fb-root"></div>
+        <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: "510641115758423", // App ID
+                channelUrl: "//vplus.vienthonga.vn/Home/FacebookChannel", // Channel File
+                status: true, // check login status
+                cookie: false, // do not rely on cookies to maintain the session
+                xfbml: true   // parse XFBML
+            });
+        };
+    
+        window.facebookShare = function(data, callback ) {
+            //var options = ({
+            //    method : 'share',
+            //    href   : data.href
+            //}),
+            var options = ({
+                method: 'feed',
+                link: data.href
+            }),
+                status = '';
+    
+            FB.ui(options, function (response) {
+                if (response && !response.error_code) {
+                    status = 'success';
+                   // $.event.trigger('fb-share.success');
+    
+                } else {
+                    status = 'error';
+                   // $.event.trigger('fb-share.error');
+                }
+    
+                if(callback && typeof callback === "function") {
+                    callback.call(this, status);
+                } else {
+                    return response;
+                }
+            });
+        }
+        
+        // share in campaign detail
+        $(document).on('click', '.vta-btn-share-fb.vta-share-campaign', function (e) {
+            closePopup();
+            e.preventDefault();
+            var campaignId = $(this).data('campaignid');
+            var sharinglink = $(this).data('sharinglink');  // link share social
+            var shareUrl = '/loyaltycampaign/share';
+            var module = $(this).data('module');
+            if (module === "getpoint") shareUrl = '/loyaltycampaign/ShareAndGetPoint';
+            var data = { href: sharinglink };
+            facebookShare(data, function (status) {
+                if (status === "success") {
+                    $.ajax({
+                        url: shareUrl,
+                        type: 'GET',
+                        data: { campaignId: campaignId },
+                        success: function (response) {
+                            var message = "";
+                            if (response.Success) {
+                                if (response.TotalPoint != null) {
+                                    message = "<p>Chia sẻ thành công. Bạn đã tích lũy được <span class='vtacoin'>" + response.TotalPoint + "</span> Vpoint</p> <p class='strong-title'>Hãy tiếp tục mời bạn bè!</p>";
+                                } else {
+                                    message = "Chia sẻ thành công. Cảm ơn!";
+                                }
+                            } else if (response.Status == "Campaign_DoAction_BeLimitedMaximumPlayInDay") {
+                                message = "Chia sẻ thành công. Cảm ơn!";
+                            }
+                            else if (response.Status == "Campaign_DoAction_HaveNoAnyPlays") {
+                                message = "Chia sẻ thành công. Cảm ơn!";
+                            } else if (response.Status == "Account_Unauthorized") {
+                                message = "<p class='strong-title'>Bạn chưa đăng nhập </p> <p>Vui lòng đăng nhập để chia sẻ và tích lũy điểm</p>";
+                            } else {
+                                //alert(response.Status);
+                                message = "Chia sẻ thành công. Cảm ơn!";
+                            }
+                            VtaGlobal.VtaFancyboxHtmlContent(message, 'vta-popup-notification vtaui-bg-icon-smile');
+                        },
+                        fail: function () {
+    
+                        },
+                        complete: function () {
+                        }
+                    });
+                }
+            });
+        });
+    
+    
+        // Load the SDK Asynchronously
+        (function (d) {
+            var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement('script'); js.id = id; js.async = true;
+            js.src = "//connect.facebook.net/en_US/all.js";
+            ref.parentNode.insertBefore(js, ref);
+        }(document));
+    
+        
+    
+    </script>
+    
+    </body>
+    
+    </html>
