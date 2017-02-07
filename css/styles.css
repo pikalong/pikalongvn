@@ -143,8 +143,26 @@ background: url("../images/Pattern65.png") repeat;
 .post-toolbar{
     display: block;
     padding: 10px 0;
+}.next-post{ float: right;}
+.next-post .next{   
+    padding: 9px;
+    font-weight: bold;
+    height: 34px;
+    line-height: 34px;
+    background-color: #ff3c1f;
+    color: #fff;
+    border-radius: 3px 0 0 3px;
 }
-.next-post{
-    float: right;
-    color: red
+
+.next-post .arrow {
+    border-top: 17px dashed transparent;
+    border-bottom: 17px dashed transparent;
+    border-left: 12px solid #ff3c1f;
+    position: absolute;
+	    right: 3px;
+    top: 10px;
+}
+.next-post:hover,.next-post:active{
+	text-decoration:none;
+	color:white;
 }
