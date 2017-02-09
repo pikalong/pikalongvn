@@ -54,9 +54,9 @@ h2{margin-top:0}
     padding-top:100px;
 }
 .mainwrap,.mainbody{
-/*background: rgb(116, 147, 112);*/
-background: url("../images/Pattern65.png") repeat;
-    background-size: 20%;
+	background: rgba(246, 247, 249, 0.34);
+	/*background: url("../images/Pattern65.png") repeat;
+    background-size: 20%;*/
 }
 .itemsize img{
     width:100%;
