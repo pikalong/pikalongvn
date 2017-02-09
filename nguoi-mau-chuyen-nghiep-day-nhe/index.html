@@ -81,7 +81,8 @@
 
 
         
-        	<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F9gag%2Fvideos%2F10155353730531840&width=625&show_text=false&appId=1844649235808688&height=360" width="625" height="360" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" preload="auto"></iframe>
+            <div id="video-preload-" class="fb-video" data-href="https://www.facebook.com/9gag/videos/10155353730531840" data-width="625" data-allowfullscreen="true" data-autoplay="true" data-show-captions="true"></div>
+
         
         
         <div class="post-comment">
@@ -127,14 +128,39 @@
         <script src="/js/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="/js/bootstrap.min.js"></script>
+        <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '1844649235808688',
+            xfbml      : true,
+            version    : 'v2.8'
+          });
         
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1844649235808688";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+          // Get Embedded Video Player API Instance
+          var my_video_player;
+          FB.Event.subscribe('xfbml.ready', function(msg) {
+            if (msg.type === 'video') {
+              my_video_player = msg.instance;
+              
+              if(msg.id==='video-preload-true'){
+                var myEventHandler = my_video_player.subscribe('finishedPlaying', function(e) {
+                    // Video started playing ...
+                    my_video_player.play();
+                });
+              }
+            }
+          });
+        };
+    
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "//connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+      </script>
+    
     
     </body>
     
