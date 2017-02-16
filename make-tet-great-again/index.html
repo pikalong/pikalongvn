@@ -3,6 +3,7 @@
     <!DOCTYPE html>
     <html lang="en">
       <head>
+      <link href="asset/images/favicon.ico" rel="shortcut icon">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,6 +55,8 @@
                             <a href="/nha-pikalong">Nhà Pikalong</a></li>
                           <li>
                             <a href="/ve-pikalong">Về Pikalong</a></li>
+                          <li>
+                            <a href="/ban-be-cua-pikalong">Bạn bè</a></li>
                     </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container -->
@@ -67,7 +70,10 @@
         <div class="post-toolbar">
             <div class="fb-like" data-href="http://pikalong.vn/make-tet-great-again" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 
-            <a href="/ong-tao-benh-pikalong-di-chau-troi-thay" class="next-post">Tin sau</a>
+            <a href="/ong-tao-benh-pikalong-di-chau-troi-thay" class="next-post">
+            	<span class="next">Tin sau</span>
+                <span class="arrow"></span>
+            </a>
         </div>
         
 
@@ -76,8 +82,9 @@
 
         <h3>  </h3>
 
-            <img src="https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.0-0/p480x480/16142375_1912473692307979_3828361302842141198_n.jpg?oh&#x3D;9f1ff8f6d718370f132909939213ea09&amp;oe&#x3D;58FE980B" title="Pikalong sừng trâu" />
+            <img src="https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.0-0/p480x480/16142375_1912473692307979_3828361302842141198_n.jpg?oh&#x3D;9f1ff8f6d718370f132909939213ea09&amp;oe&#x3D;58FE980B" title="Pikalong sừng trâu" width="625" />
 
+        
         
         
         <div class="post-comment">
@@ -123,14 +130,48 @@
         <script src="/js/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="/js/bootstrap.min.js"></script>
+        <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '1844649235808688',
+            xfbml      : true,
+            version    : 'v2.8'
+          });
         
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1844649235808688";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+          // Get Embedded Video Player API Instance
+          var my_video_player;
+          FB.Event.subscribe('xfbml.ready', function(msg) {
+            if (msg.type === 'video') {
+              my_video_player = msg.instance;
+              
+              if(msg.id==='video-preload-true'){
+                var myEventHandler = my_video_player.subscribe('finishedPlaying', function(e) {
+                    // Video started playing ...
+                    my_video_player.play();
+                });
+              }
+            }
+          });
+        };
+    
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "//connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+      </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-56925587-1', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
     
     </body>
     
